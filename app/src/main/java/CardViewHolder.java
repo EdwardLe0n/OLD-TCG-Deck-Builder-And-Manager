@@ -7,21 +7,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tcgdeckbuilderandmanager.R;
 
-class WordViewHolder extends RecyclerView.ViewHolder {
-    private final TextView wordItemView;
+class CardViewHolder extends RecyclerView.ViewHolder {
+    private final TextView cardItemView;
 
-    private WordViewHolder(View itemView) {
+    private CardViewHolder(View itemView) {
         super(itemView);
-        wordItemView = itemView.findViewById(R.id.textView);
+        cardItemView = itemView.findViewById(R.id.textView);
     }
 
     public void bind(String text) {
-        wordItemView.setText(text);
+        cardItemView.setText(text);
     }
 
-    static WordViewHolder create(ViewGroup parent) {
+    static CardViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_item, parent, false);
-        return new WordViewHolder(view);
+        return new CardViewHolder(view);
     }
 }
