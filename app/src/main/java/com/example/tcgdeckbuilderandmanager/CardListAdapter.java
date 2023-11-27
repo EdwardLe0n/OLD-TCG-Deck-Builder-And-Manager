@@ -1,3 +1,5 @@
+package com.example.tcgdeckbuilderandmanager;
+
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;

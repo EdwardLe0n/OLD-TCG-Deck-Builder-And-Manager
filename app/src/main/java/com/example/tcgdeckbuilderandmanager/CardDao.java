@@ -1,3 +1,5 @@
+package com.example.tcgdeckbuilderandmanager;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;

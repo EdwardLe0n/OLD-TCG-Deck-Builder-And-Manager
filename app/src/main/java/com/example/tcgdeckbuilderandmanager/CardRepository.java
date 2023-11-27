@@ -1,3 +1,5 @@
+package com.example.tcgdeckbuilderandmanager;
+
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;

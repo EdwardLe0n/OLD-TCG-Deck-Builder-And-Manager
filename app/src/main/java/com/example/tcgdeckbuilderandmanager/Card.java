@@ -1,3 +1,5 @@
+package com.example.tcgdeckbuilderandmanager;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -22,6 +24,14 @@ public class Card {
     @ColumnInfo(name = "Card Name")
     private String name;
 
+    @NonNull
+    @ColumnInfo(name = "Set Number")
+    private Integer setNum;
+
+    @NonNull
+    @ColumnInfo(name = "Set Monster Number")
+    private Integer setMonNum;
+
     // Type refers to what type of card a card is (1 = monster, 2 = item/spell)
     @NonNull
     @ColumnInfo(name = "Card Type")
@@ -38,6 +48,14 @@ public class Card {
     @ColumnInfo(name = "Card Sub-Type")
     private Integer subType;
 
+    @NonNull
+    @ColumnInfo(name = "Card Power Level")
+    private Integer power;
+
+    @NonNull
+    @ColumnInfo(name = "Card Slots")
+    private Integer slots;
+
     // Quick boolean that is used to show if a card is still legal
     @NonNull
     @ColumnInfo(name = "Card Legality?")
@@ -49,11 +67,16 @@ public class Card {
     private boolean dupesAllowed;
 
     public Card(@NonNull String name, @NonNull Integer type,
-                @NonNull Integer subType, @NonNull boolean isLegal,
-                @NonNull boolean dupesAllowed) {
+                @NonNull Integer subType, @NonNull Integer power,
+                @NonNull Integer slots, @NonNull boolean dupesAllowed,
+                @NonNull Integer setNum, @NonNull Integer setMonNum,
+                @NonNull boolean isLegal, String effect) {
+
         this.name = name;
         this.type = type;
         this.subType = subType;
+        this.power = power;
+        this.slots = slots;
         this.isLegal = isLegal;
         this.dupesAllowed = dupesAllowed;
 
@@ -79,6 +102,30 @@ public class Card {
 
     public boolean isDupesAllowed() {
         return dupesAllowed;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getSetNum() {
+        return setNum;
+    }
+
+    public Integer getSetMonNum() {
+        return setMonNum;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public Integer getPower() {
+        return power;
+    }
+
+    public Integer getSlots() {
+        return slots;
     }
 
     // This class returns a string dependent on the cards type and subtype
