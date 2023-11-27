@@ -50,7 +50,12 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Card card = new Card(data.getStringExtra(NewCardActivity.EXTRA_REPLY));
+            Bundle bundle = new Bundle(data.getExtras());
+
+
+
+
+
             mCardViewModel.insert(card);
         } else {
             Toast.makeText(

@@ -10,27 +10,48 @@ import android.widget.EditText;
 
 public class NewCardActivity extends AppCompatActivity {
 
-    public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
+    public static final Bundle EXTRA_REPLY = new Bundle();
 
-    private EditText mEditWordView;
+    private EditText mEditCardName;
+    private EditText mEditCardRPSType;
+    private EditText mEditCardType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_card);
-        mEditWordView = findViewById(R.id.edit_card);
+        mEditCardName = findViewById(R.id.edit_cName);
+        mEditCardRPSType = findViewById(R.id.edit_rpsType);
+        mEditCardType = findViewById(R.id.edit_type);
 
         final Button button = findViewById(R.id.button_save);
+
+
+        String name = mEditCardName.getText().toString();
+        int rpsType = Integer.parseInt(mEditCardRPSType.getText().toString());
+
+
         button.setOnClickListener(view -> {
+
             Intent replyIntent = new Intent();
-            if (TextUtils.isEmpty(mEditWordView.getText())) {
+
+            if (this.isValid()) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                String name = mEditWordView.getText().toString();
-                replyIntent.putExtra(EXTRA_REPLY, name);
+
+                replyIntent.putExtras(EXTRA_REPLY);
                 setResult(RESULT_OK, replyIntent);
             }
             finish();
         });
     }
+
+    private boolean isValid() {
+
+        if (TextUtils.isEmpty(mEditCardName.getText())) { return false; }
+
+        return true;
+
+    }
+
 }

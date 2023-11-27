@@ -48,13 +48,28 @@ public class Card {
     @ColumnInfo(name = "Card Sub-Type")
     private Integer subType;
 
+    // Each card has a certain power level! For monsters, this is the strength of a creature
+    // For items/spells, this tends to be how much of a boost it gives to the attached creature
+
+    // Each card has a different typing (rock , paper, scissors)
+    @NonNull
+    @ColumnInfo(name = "RPS Type")
+    private Integer rpsType;
+
     @NonNull
     @ColumnInfo(name = "Card Power Level")
     private Integer power;
 
+    // Each card has a certain amount of slots! For monsters, this is amount of slots available
+    // For items/spells, this tends to be how many slots the item takes up on a creature
     @NonNull
     @ColumnInfo(name = "Card Slots")
     private Integer slots;
+
+    // If a card has an effect, it will be listed here!
+    @NonNull
+    @ColumnInfo(name = "Card Effect")
+    private String effect;
 
     // Quick boolean that is used to show if a card is still legal
     @NonNull
@@ -66,19 +81,25 @@ public class Card {
     @ColumnInfo(name = "Duplicates Allowed?")
     private boolean dupesAllowed;
 
-    public Card(@NonNull String name, @NonNull Integer type,
-                @NonNull Integer subType, @NonNull Integer power,
-                @NonNull Integer slots, @NonNull boolean dupesAllowed,
-                @NonNull Integer setNum, @NonNull Integer setMonNum,
+    public Card(@NonNull String name, @NonNull Integer rpsType, @NonNull Integer type,
+                @NonNull Integer subType, @NonNull Integer power, @NonNull Integer slots,
+                @NonNull boolean dupesAllowed, @NonNull Integer setNum, @NonNull Integer setMonNum,
                 @NonNull boolean isLegal, String effect) {
 
         this.name = name;
+        this.setNum = setNum;
+        this.setMonNum = setMonNum;
         this.type = type;
         this.subType = subType;
+        this.rpsType = rpsType;
         this.power = power;
         this.slots = slots;
         this.isLegal = isLegal;
         this.dupesAllowed = dupesAllowed;
+
+        if (effect == null) {
+            this.effect = "No special effects";
+        }
 
     }
 
@@ -128,6 +149,10 @@ public class Card {
         return slots;
     }
 
+    public String getEffect() {
+        return effect;
+    }
+
     // This class returns a string dependent on the cards type and subtype
     // This class is used to turn the two ints type/subtype into text a normal user can understand
     public String getFormType() {
@@ -152,6 +177,13 @@ public class Card {
         }
 
         return temp;
+    }
+
+    // Returns a formatted string that's dependent on a creatures set number and individual number in that set
+    public String getFormNum(){
+
+        return "S" + this.getSetNum() + "-" + this.getSetMonNum();
+
     }
 
     public String getIsLegal() {

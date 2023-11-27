@@ -51,9 +51,12 @@ public abstract class CardRoomDatabase extends RoomDatabase {
                 CardDao dao = INSTANCE.cardDao();
                 dao.deleteAll();
 
-                Card card = new Card("Subsitute", 1, 1, false, true);
+                Card card = new Card("Subsitute", 1, 1, 1, 200,
+                        1, true, -1, -1, false, null);
                 dao.insert(card);
-                card = new Card("Quarter", 2, 1, true, true);
+                card = new Card("Quarter", 1, 2, 1, 400, 1,
+                        true, 1, 2, true,
+                        "At the end of your turn, you may sacrifice this card to draw a card");
                 dao.insert(card);
             });
         }

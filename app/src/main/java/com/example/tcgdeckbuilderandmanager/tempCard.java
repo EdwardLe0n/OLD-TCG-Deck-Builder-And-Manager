@@ -2,7 +2,7 @@ package com.example.tcgdeckbuilderandmanager;
 
 public class tempCard {
 
-    private
+    private String name;
 
 
 }
