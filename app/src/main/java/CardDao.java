@@ -6,14 +6,14 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface WordDao {
+public interface CardDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Word word);
+    void insert(Card card);
 
-    @Query("DELETE FROM word_table")
+    @Query("DELETE FROM card_table")
     void deleteAll();
 
-    @Query("SELECT * FROM word_table ORDER BY word ASC")
-    LiveData<List<Word>> getAlphabetizedWords();
+    @Query("SELECT * FROM card_table ORDER BY `Card Name` ASC")
+    LiveData<List<Card>> getAlphabetizedWords();
 }
