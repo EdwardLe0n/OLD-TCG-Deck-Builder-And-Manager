@@ -153,6 +153,18 @@ public class Card {
         return effect;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public Integer getRpsType() {
+        return rpsType;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     // This class returns a string dependent on the cards type and subtype
     // This class is used to turn the two ints type/subtype into text a normal user can understand
     public String getFormType() {
