@@ -10,6 +10,9 @@
     <string name="hint_power">Any number </string>
     <string name="hint_slots">Any single digit number</string>
 
+    <string name="hint_username">Username...</string>
+    <string name="hint_password">Password...</string>
+    <string name="hint_password2">Same password as earlier...</string>
 
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Card is not saved because of some error within the card creation </string>
