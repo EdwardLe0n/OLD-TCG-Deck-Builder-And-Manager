@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            mCardViewModel.insert(card);
+            //mCardViewModel.insert(card);
         } else {
             Toast.makeText(
                     getApplicationContext(),
